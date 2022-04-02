@@ -1,5 +1,4 @@
 #!
-from importlib.resources import contents
 import random
 
 def welcome(lang):
@@ -18,6 +17,9 @@ def prompt(Question, Options):
     print("Your Options are:",Options)
     uPrompt = input ("> ")
     return uPrompt
+
+def checkPoint(currPos, distance):
+    return int(currPos) + int(distance)
 
 class inventory:
     contents = []
@@ -40,8 +42,6 @@ class inventory:
             print(item, "dropped.")
         else: print ("Couldn't drop", item, "as it isn't in your inventory.")
 
-def checkPoint(currPos, distance):
-    return int(currPos) + int(distance)
 
 class player:
     def __init__(self):
@@ -62,4 +62,16 @@ class player:
                 player.self.skill += 1
                 return True
             else: return False
+    
+    def hurt(damage, armour):
+        (player.self.health + (0.1* armour)) - damage
+
+    def heal(healModifier):
+        if (player.self.health + healModifier) > 25:
+            player.self.health = 25
+        else:
+            player.self.health += healModifier
+    
+
+    
 
