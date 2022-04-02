@@ -1,16 +1,16 @@
 #!
 import random
 
-def welcome(lang):
+def welcome(lang, name, credits):
     if lang == "EN":
-        print("Welcome to TEXT GAME")
-        print("Credit: TODO")
+        print("Welcome to", name)
+        print("Credit:", credits)
     elif lang == "EO":
-        print("Bonvenon a Ludo de Teksto")
-        print("Faritaj de: TODO")
+        print("Bonvenon a", name)
+        print("Faritaj de:", credits)
     elif lang == "FR":
-        print("Bienvenue au Jeu de Texte")
-        print("Fait par: TODO")
+        print("Bienvenue au", name)
+        print("Fait par:", credits)
     
 def prompt(Question, Options):
     print(Question)
