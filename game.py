@@ -49,6 +49,9 @@ class player:
         self.skill = 1
         self.intellect = random.randint(1,5)
     
+    def stats():
+        return str("Health\t{}\nSkill\t{}\nIntellect\t{}\n".format(player.self.health, player.self.skill, player.self.intellect))
+
     def doTask(task):
         difficulty = (player.self.skill * player.self.intellect) - task
         success = random.randint(0,100)
