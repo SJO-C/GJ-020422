@@ -26,21 +26,28 @@ class inventory:
     def __init__(self, contents):
         self.contents = contents
 
-    def check():
+    def check(self):
         print ("In your inventory, you have:")
         if inventory.contents:
             for i in inventory.contents:
                 print(i)
         else: print("Nothing. Sorry about that.")
 
-    def pickup(item):
+    def sysAdd(self,item):
+        inventory.contents.append(item)
+        return inventory.contents
+    def pickup(self,item):
         inventory.contents.append(item)
         print("You have picked up", item)
-    def drop(item):
+        return inventory.contents
+    def drop(self,item):
         if item in inventory.contents:
             inventory.contents.remove(item)
             print(item, "dropped.")
-        else: print ("Couldn't drop", item, "as it isn't in your inventory.")
+            return inventory.contents
+        else: 
+            print ("Couldn't drop", item, "as it isn't in your inventory.")
+            return inventory.contents
 
 
 class player:
@@ -49,10 +56,10 @@ class player:
         self.skill = 1
         self.intellect = random.randint(1,5)
     
-    def stats():
+    def stats(self):
         return str("Health\t{}\nSkill\t{}\nIntellect\t{}\n".format(player.self.health, player.self.skill, player.self.intellect))
 
-    def doTask(task):
+    def doTask(self,task):
         difficulty = (player.self.skill * player.self.intellect) - task
         success = random.randint(0,100)
         if difficulty > (player.self.intellect - 1):
@@ -66,10 +73,10 @@ class player:
                 return True
             else: return False
     
-    def hurt(damage, armour):
+    def hurt(self,damage, armour):
         (player.self.health + (0.1* armour)) - damage
 
-    def heal(healModifier):
+    def heal(self,healModifier):
         if (player.self.health + healModifier) > 25:
             player.self.health = 25
         else:
