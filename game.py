@@ -40,5 +40,26 @@ class inventory:
             print(item, "dropped.")
         else: print ("Couldn't drop", item, "as it isn't in your inventory.")
 
+def checkPoint(currPos, distance):
+    return int(currPos) + int(distance)
 
-        
+class player:
+    def __init__(self):
+        self.health = 25
+        self.skill = 1
+        self.intellect = random.randint(1,5)
+    
+    def doTask(task):
+        difficulty = (player.self.skill * player.self.intellect) - task
+        success = random.randint(0,100)
+        if difficulty > (player.self.intellect - 1):
+            if success >= 75:
+                player.self.skill += 1
+                return True
+            else: return False
+        else: 
+            if success >= 25:
+                player.self.skill += 1
+                return True
+            else: return False
+
